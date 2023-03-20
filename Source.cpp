@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <stdio.h>;
 using namespace std;
 
 class Triangle {
@@ -13,14 +14,21 @@ public:
 		this->c = c;
 	}
 	//методы ля вывода длин сторон
-	void printSides() {
-		cout << "Длины сторон треугольника" << a << ", " << b << ", " << c << endl;
+	void printA() {
+		cout << "a = " << a << endl;
 	}
-	int Perimeter() {
+	void printB() {
+		cout << "b = " << b << endl;
+	}
+	void printC() {
+		cout << "c = " << c << endl;
+	}
+
+	int perimeter() {
 		return a + b + c;
 	}
 	//метод для расчета площади треугольника по формуле Герона
-	double Area() {
+	double area() {
 		double p = (a + b + c) / 2.0; //
 		return sqrt(p * (p - a) * (p - b) * (p - c)); //формула Герона
 	}
@@ -101,3 +109,48 @@ public:
 		return Triangle(a * scalar, b * scalar, c * scalar);
 	}
 };
+int main() {
+	system("chcp 1251>NULL");
+	int a, b, c;
+	cout << "Введите длины сторон: " << endl;
+	cout << "Сторона a: ";
+	cin >> a;
+	cout << "Сторона b: ";
+	cin >> b;
+	cout << "Сторона c: ";
+	cin >> c;
+	Triangle t(a, b, c); //треугольник с длинами сторон, созданный пользователем
+	//выводим длины на экран
+	t.printA();
+	t.printB();
+	t.printC();
+
+	cout << "Периметр = " << t.perimeter() << endl;
+	cout << "Площадь = " << t.area() << endl;
+
+	//проверяем на существование треугольника
+	if (t) {
+		cout << "Треугольник существует." << endl;
+	}
+	else { cout << "Треугольник не существует." << endl; }
+
+	//обращаемся к полям по индексу
+	cout << "t[0] = " << t[0] << endl;
+	cout << "t[1] = " << t[1] << endl;
+	cout << "t[2] = " << t[2] << endl;
+	++t;
+	cout << "Новые значения " << endl;
+	t.printA();
+	t.printB();
+	t.printC();
+	--t;
+	cout << "Новые значения " << endl;
+	t.printA();
+	t.printB();
+	t.printC();
+	Triangle z = t * 2;
+	cout << "Новые значения " << endl;
+	z.printA();
+	z.printB();
+	z.printC();
+}
