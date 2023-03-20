@@ -47,7 +47,7 @@ public:
 	}
 
 	//свойство для проверки существования треугольника
-	bool valid() {
+	bool valid() const {
 		return (a + b > c && a + c > b && b + c > a);
 	}
 
