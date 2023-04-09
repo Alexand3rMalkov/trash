@@ -10,15 +10,15 @@ int age = 18;
 int year = 2022;
 string name = "Vadim";
 
-double check() {
-    if (average_value() < 3) cout << "Здравствуй небо в облаках, здравствуй юность в сапогах..." << endl;
-    else cout << "Ура, я умный!" << endl;
-    return average_value();
-}
-
 double average_value(int math, int analitic_geom, int phys, int high_math) {
     double av_value = (math + analitic_geom + phys + high_math) / 4;
     return av_value;
+}
+
+double check(int math, int analitic_geom, int phys, int high_math) {
+    if (average_value(math, analitic_geom, phys, high_math) < 3) cout << "Здравствуй небо в облаках, здравствуй юность в сапогах..." << endl;
+    else cout << "Ура, я умный!" << endl;
+    return average_value(math, analitic_geom, phys, high_math);
 }
 
 int ch_age(int age) {
