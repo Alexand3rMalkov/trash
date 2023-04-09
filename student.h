@@ -28,6 +28,8 @@ public:
 class Mathematic_prog : public Mathematic {
 public:
     int ch_age() {
+        int ch = age + rand() % 21;
+        return ch;
     }
     int choose_mark() {
     }
